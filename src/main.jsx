@@ -6,6 +6,6 @@ import App from "./pages/App";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <App.jsx />
+    <App />
   </StrictMode>
 );

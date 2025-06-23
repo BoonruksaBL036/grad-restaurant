@@ -42,7 +42,7 @@ const App = () => {
               type="text"
               name="title"
               value={restaurant.title}
-              className="grow w-80"
+              className="input"
               placeholder="Restaurant Title"
               onChange={handlechange}
             />
@@ -50,10 +50,11 @@ const App = () => {
 
           <label className="label">
             Restaurant Type
-            <input
-              type="text"
+            <input 
+              type="text"  
               className="input"
-              placeholder="my-awesome-page"
+              placeholder="Restaurant Type"
+               onChange={handlechange}
             />
           </label>
 
@@ -61,6 +62,7 @@ const App = () => {
             Restaurant Img :
             <input
               type="text"
+               className="input"
               onChange={handlechange}
               placeholder="Restaurant Img"
               name="img"
@@ -68,7 +70,7 @@ const App = () => {
           </label>
           {restaurant.img && (
             <div className="flex items-center gap-2">
-              <img className="h-32 src={restaurant.img}" />
+              <img className="h-32 " src={restaurant.img} />
             </div>
           )}
 
