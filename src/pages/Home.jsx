@@ -1,9 +1,24 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
 import Navbar from "../Component/Navbar";
-import Card from "../Component/Card";
 import Restaurants from "../Component/Restaurants";
 
+
 const Home = () => {
+  const [restaurant,setRestaurants] = useState([]);
+  useEffect(()=>{
+    //call api: getAllRestaurants
+    fetch("http://localhost:5000/restaurants").then((res)=>{
+      // convert to json format
+      return res.json()
+    }).then((response)=>{
+      // save to state
+      setRestaurants(response)
+    }).catch((err)=>{
+      // catch error
+      console.log(err.message);
+    })
+  },[]);
+  console.log(restaurant)
   return (
     <div className="container mx-auto">
       <Navbar />
@@ -33,7 +48,7 @@ const Home = () => {
           <input type="search" required placeholder="Search" />
         </label>
       </div>
-      <Restaurants/>
+      <Restaurants restaurant={restaurant}/>
     </div>
   );
 };

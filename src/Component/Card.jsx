@@ -12,7 +12,7 @@ const Card = (props) => {
           <p>{props.type}</p>
           <div className="card-actions justify-end">
             <button className="btn btn-error">Delete</button>
-            <button class="btn btn-warning">Edit</button>
+            <button className="btn btn-warning">Edit</button>
           </div>
         </div>
       </div>
