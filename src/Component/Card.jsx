@@ -2,14 +2,18 @@ import React from "react";
 import { Link } from "react-router";
 
 const Card = (props) => {
-  const handleDelete = async (id) =>{
-    fetch("http://localhost:5000/restaurants/"+ id,{
-      method: "Delete"
-    })
-    .catch((err)=>{
-        //catch error
-        console.log(err.message);
-    });
+  const handleDelete = async (id) => {
+    try {
+      const response = await fetch("http://localhost:5000/restaurants/"+ id, {
+        method: "Delete"
+      });
+      if (response.ok) {
+        alert("Restaurant Delete successfully!!");
+        window,location.reload();
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <>
