@@ -21,7 +21,6 @@ const Home = () => {
   console.log(restaurant)
   return (
     <div className="container mx-auto">
-      <Navbar />
       <div>
         <h1 className="titel-justify-center text-3xl text-center m-5 p-5">
           Grad Restaurant

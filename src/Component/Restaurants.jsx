@@ -10,6 +10,7 @@ const Restaurants = (props) => {
           restaurant.map((restaurant) => (
             <Card
               key={restaurant.id}
+              id={restaurant.id}
               title={restaurant.title}
               type={restaurant.type}
               image={restaurant.img}

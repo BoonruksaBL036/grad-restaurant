@@ -4,12 +4,12 @@ const Navbar = () => {
   const menuItem = [
     {id:1,
       name: "Add restaurant",
-      url: "/",
+      url: "/add",
     },
     {
       id:2,
       name: "search",
-      url: "/",
+      url: "/search",
     },
     {
       id:3,
@@ -49,7 +49,7 @@ const Navbar = () => {
             ))}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl">Grad Restaurant</a>
+        <a href="/" className="btn btn-ghost text-xl">Grad Restaurant</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">
