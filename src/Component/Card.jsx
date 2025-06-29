@@ -1,15 +1,32 @@
 import React from "react";
 import { Link } from "react-router";
+import Swal from "sweetalert2";
 
 const Card = (props) => {
   const handleDelete = async (id) => {
     try {
-      const response = await fetch("http://localhost:5000/restaurants/"+ id, {
-        method: "Delete"
+      const result = await Swal.fire({
+        title: "Are you sure?",
+        text: "You won't be able to revert this!",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, delete it!",
       });
-      if (response.ok) {
-        alert("Restaurant Delete successfully!!");
-        window,location.reload();
+      if (result.isConfirmed) {
+        Swal.fire({
+          title: "Deleted!",
+          text: "Your file has been deleted.",
+          icon: "success",
+        });
+        await new Promise((resolve) => setTimeout(resolve, 1000));
+        const response = await fetch(
+          "http://localhost:5000/restaurants/" + id,
+          {
+            method: "Delete",
+          }
+        );
       }
     } catch (error) {
       console.log(error);
@@ -25,7 +42,10 @@ const Card = (props) => {
           <h2 className="card-title">{props.title}</h2>
           <p>{props.type}</p>
           <div className="card-actions justify-end">
-            <button onClick={() => handleDelete(props.id)} className="btn btn-error">
+            <button
+              onClick={() => handleDelete(props.id)}
+              className="btn btn-error"
+            >
               Delete
             </button>
             <Link to={`/update/${props.id}`} className="btn btn-warning">

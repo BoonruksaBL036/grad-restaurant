@@ -9,7 +9,7 @@ const Navbar = () => {
     {
       id:2,
       name: "search",
-      url: "/search",
+      url: "/",
     },
     {
       id:3,
