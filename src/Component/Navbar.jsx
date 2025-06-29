@@ -16,6 +16,7 @@ const Navbar = () => {
       name: "About Us",
       url: "/",
     },
+    
   ];
   return (
     <div className="navbar bg-base-100 shadow-sm">
